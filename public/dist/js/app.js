@@ -47823,6 +47823,16 @@ function messageDirective() {
   }
 }
 angular
+  .module("Ballr")
+  .directive('scrollTop', scrollTop);
+
+scrollTop.$inject = ["$timeout"];
+function scrollTop($timeout) {
+  return {
+    restrict: 'A'
+  }
+}
+angular
   .module('Ballr')
   .factory('Channel', Channel);
 

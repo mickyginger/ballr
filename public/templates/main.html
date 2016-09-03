@@ -33,9 +33,9 @@
 
   <div id="chat" class="col-md-10" ng-controller="MessagesController as messages">
     <div id="messages">
-
-      <message ng-repeat="message in messages.all" message="message" controller="messages" current-user="main.currentUser"></message>
-
+      <div class="inner">
+        <message ng-repeat="message in messages.all" message="message" controller="messages" current-user="main.currentUser"></message>
+      </div>
     </div>
 
     <textarea ng-model="messages.new" ng-keyup="messages.send($event)" ng-disabled="!main.connected" autofocus></textarea>
