@@ -5,6 +5,7 @@ var User = require('../models/user');
 var secret = require('../config/tokens').secret;
 
 function facebook(req, res) {
+  console.log(req.headers);
   var params = {
     code: req.body.code,
     client_id: req.body.clientId,
