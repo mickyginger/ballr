@@ -9,10 +9,14 @@
     "postinstall": "bower install"
   },
   "description": "Ballr: a Slack clone",
-  "repository": "git remote add origin git@github.com:mickyginger/ballr.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mickyginger/ballr.git"
+  },
   "dependencies": {
     "bluebird": "^3.4.6",
     "body-parser": "^1.14.2",
+    "bower": "^1.7.9",
     "express": "^4.13.4",
     "jsonwebtoken": "^7.1.9",
     "mongoose": "^4.6.0",
