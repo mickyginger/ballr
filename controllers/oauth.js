@@ -5,12 +5,12 @@ var User = require('../models/user');
 var secret = require('../config/tokens').secret;
 
 function facebook(req, res) {
-  console.log(req.headers);
+
   var params = {
     code: req.body.code,
     client_id: req.body.clientId,
     client_secret: process.env.FACEBOOK_API_SECRET,
-    redirect_uri: 'http://localhost:3000/'
+    redirect_uri: req.headers.referer
   };
 
   var userProfile;

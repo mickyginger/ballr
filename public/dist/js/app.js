@@ -47735,10 +47735,12 @@ function MessagesController($rootScope, socket, Message) {
   }
 
   $rootScope.$on("currentChannel", function(event, channel) {
-    self.currentChannel = channel;
-    Message.query({ channelId: channel._id }, function(res) {
-      self.all = res;
-    });
+    if(channel) {
+      self.currentChannel = channel;
+      Message.query({ channelId: channel._id }, function(res) {
+        self.all = res;
+      });
+    }
   });
 
   this.send = function(event) {
