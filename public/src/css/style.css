@@ -1,0 +1,110 @@
+html, body, main {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0; }
+
+button.delete, button.add {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid;
+  color: #666;
+  width: 22px;
+  height: 22px;
+  line-height: 7px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  padding: 0;
+  outline: none; }
+
+button, input {
+  outline: none; }
+
+.message {
+  background-color: #fff;
+  position: relative; }
+  .message .media-heading {
+    font-weight: bold; }
+    .message .media-heading span {
+      color: #ccc;
+      font-size: 0.8em;
+      font-weight: normal; }
+  .message p {
+    margin-bottom: 0; }
+  .message button.delete {
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    opacity: 0;
+    transition: opacity 0.5s; }
+  .message:hover button.delete {
+    z-index: 10;
+    opacity: 1; }
+
+* {
+  font-family: 'Open Sans'; }
+
+h5 {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: 16px; }
+
+h6 {
+  font-weight: bold;
+  font-size: 16px; }
+
+#chat {
+  min-height: 100vh; }
+  #chat #messages {
+    height: calc(100vh - 100px);
+    padding: 15px 0; }
+  #chat textarea {
+    height: 90px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    padding: 5px 8px;
+    outline: none;
+    color: #666; }
+
+#left-panel {
+  background: #666;
+  min-height: 100vh;
+  padding: 15px; }
+  #left-panel > div {
+    margin-bottom: 30px; }
+  #left-panel h5, #left-panel h6 {
+    position: relative;
+    color: #eee; }
+    #left-panel h5.active, #left-panel h6.active {
+      color: #46c84a; }
+    #left-panel h5 button.add, #left-panel h5 button.delete, #left-panel h6 button.add, #left-panel h6 button.delete {
+      color: #ccc;
+      position: absolute;
+      top: -4px;
+      right: 0; }
+    #left-panel h5 button.delete, #left-panel h6 button.delete {
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.5s; }
+    #left-panel h5:hover button.delete, #left-panel h6:hover button.delete {
+      z-index: 10;
+      opacity: 1; }
+  #left-panel .form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 100; }
+    #left-panel .form-container form {
+      position: relative;
+      top: 30vh;
+      transform: translateY(-50%); }
+
+#login {
+  position: relative;
+  top: 30vh;
+  transform: translateY(-50%); }

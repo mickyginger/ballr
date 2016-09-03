@@ -1,0 +1,44 @@
+<div class="row">
+  <div id="left-panel" class="col-md-2">
+    <div id="channels" ng-controller="ChannelsController as channels">
+
+      <div class="form-container row" ng-show="channels.new">
+        <div class="col-md-6 offset-md-3">
+          <form ng-submit="channels.create()">
+            <h3>New Channel</h3>
+
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Name" ng-model="channels.new.name" class="form-control">
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Create Channel">
+            <input type="reset" class="btn btn-secondary" ng-click="channels.cancel()" value="Cancel">
+          </form>
+        </div>
+      </div>
+
+      <h5>
+        Channels <span>({{ channels.all.length }})</span>
+        <button ng-click="channels.add()" class="add">+</button>
+      </h5>
+
+      <channel ng-repeat="channel in channels.all" channel="channel" controller="channels" current-user="main.currentUser"></channel>
+    </div>
+
+    <div id="users" ng-controller="UsersController as users">
+      <h5>Users <span>({{ users.all.length }})</span></h5>
+      <h6 ng-repeat="user in users.all" ng-class="{ active: user.active }">{{ user.name }}</h6>
+    </div>
+  </div>
+
+  <div id="chat" class="col-md-10" ng-controller="MessagesController as messages">
+    <div id="messages">
+
+      <message ng-repeat="message in messages.all" message="message" controller="messages" current-user="main.currentUser"></message>
+
+    </div>
+
+    <textarea ng-model="messages.new" ng-keyup="messages.send($event)" ng-disabled="!main.connected" autofocus></textarea>
+  </div>
+
+</div>

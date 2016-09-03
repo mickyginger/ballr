@@ -1,0 +1,19 @@
+#chat {
+  min-height: 100vh;
+
+  #messages {
+    height: calc(100vh - 100px);
+    padding: 15px 0;
+  }
+
+  textarea {
+    height: 90px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    padding: 5px 8px;
+    outline: none;
+    color: #666;
+  }
+}

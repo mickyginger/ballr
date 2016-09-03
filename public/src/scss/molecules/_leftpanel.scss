@@ -1,0 +1,59 @@
+#left-panel {
+  background: #666;
+  min-height: 100vh;
+  padding: 15px;
+
+  & > div {
+    margin-bottom: 30px;
+  }
+
+  h5, h6 {  
+    position: relative;
+    color: #eee;
+
+    &.active {
+      color: rgb(70, 200, 74)
+    }
+
+    button {
+      &.add,
+      &.delete {
+        color: #ccc;
+        position: absolute;
+        top: -4px;
+        right: 0;
+      }
+
+      &.delete {
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.5s;
+      }
+    }
+
+    &:hover {
+      button {
+        &.delete {
+          z-index: 10;
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 100;
+
+    form {
+      position: relative;
+      top: 30vh;
+      transform: translateY(-50%);
+    }
+  }
+}

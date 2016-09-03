@@ -1,0 +1,42 @@
+{
+  "name": "ballr",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "Mike Hayden <mickyginger@gmail.com> (https://github.com/mickyginger)",
+  "license": "ISC",
+  "scripts": {
+    "start": "node app",
+    "postinstall": "bower install"
+  },
+  "description": "A Slack clone for education purposes",
+  "repository": "",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^7.1.9",
+    "mongoose": "^4.6.0",
+    "morgan": "^1.6.1",
+    "qs": "^6.2.1",
+    "request": "^2.74.0",
+    "request-promise": "^4.1.1",
+    "socket.io": "^1.4.8",
+    "socketio-jwt": "^4.5.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-debug": "^2.1.2",
+    "gulp-filter": "^4.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "main-bower-files": "^2.13.1",
+    "run-sequence": "^1.2.2"
+  }
+}

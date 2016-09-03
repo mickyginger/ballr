@@ -1,0 +1,19 @@
+button {
+  &.delete,
+  &.add {
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid;
+    color: #666;
+    width: 22px;
+    height: 22px;
+    line-height: 7px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.5);
+    padding: 0;
+    outline: none;
+  }
+}
+
+button,input {
+  outline: none;
+}

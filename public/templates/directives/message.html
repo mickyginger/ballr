@@ -1,0 +1,13 @@
+<div class="media message">
+  <div class="media-left">
+    <img class="media-object" ng-src="{{ message.user.profileImage }}" alt="{{ message.user.name }}">
+  </div>
+  <div class="media-body">
+    <h6 class="media-heading">
+      {{ message.user.name }} <span>{{ message.date }}</span>
+    </h6>
+    <p>{{ message.content }}</p>
+  </div>
+
+  <button class="delete" ng-click="controller.delete(message)" ng-if="message.user._id === currentUser._id">&times;</button>
+</div>
