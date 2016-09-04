@@ -30,10 +30,12 @@ This is an attempt at building a slack clone with a MEAN stack purely for educat
 ### Bugs/Issues
 
 - Can't log out
+- Desktop only
 
 ### To do
 
-- Emojis 
+- Direct messaging
+- <del>Emojis</del> 
 - Code blocks
 - File upload
 - <del>Giphy</del>
