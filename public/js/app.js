@@ -47758,10 +47758,12 @@ function MessagesController($rootScope, socket, Message) {
   }
 
   socket.on("message", function(data) {
-    $rootScope.$applyAsync(function() {
-      var message = new Message(data);
-      self.all.push(message);
-    });
+    if(data.channel._id === self.currentChannel._id) {
+      $rootScope.$applyAsync(function() {
+        var message = new Message(data);
+        self.all.push(message);
+      });
+    }
   });
 }
 angular
