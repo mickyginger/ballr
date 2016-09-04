@@ -4,7 +4,7 @@ function messagesIndex(req, res) {
   Message
     .find({ channel: req.params.channelId })
     .sort({ date: 1 })
-    .populate('user')
+    .populate('user', '_id name profileImage')
     .exec()
     .then(function(messages) {
       res.status(200).send(messages);

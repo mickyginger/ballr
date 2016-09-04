@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var utils = require('../config/utils');
+var emoji = require('node-emoji');
 
 var messageSchema = new mongoose.Schema({
   content: { type: String, required: true },
@@ -23,6 +24,11 @@ messageSchema.path('date')
 messageSchema.path('giphy.size')
   .get(function(size) {
     if(size) return utils.number.toKB(size);
+  });
+
+messageSchema.path('content')
+  .get(function(content) {
+    return emoji.emojify(content);
   });
 
 messageSchema.set('toJSON', { getters: true });
