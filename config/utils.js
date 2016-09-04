@@ -23,7 +23,7 @@ module.exports = {
   },
   number: {
     toKB: function(bytes) {
-      return parseFloat((bytes / 1040).toFixed(2));
+      return Math.round(bytes / 1040);
     }
   }
 }

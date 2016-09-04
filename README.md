@@ -36,4 +36,4 @@ This is an attempt at building a slack clone with a MEAN stack purely for educat
 - Emojis 
 - Code blocks
 - File upload
-- Gify
+- <del>Giphy</del>
