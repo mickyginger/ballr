@@ -47824,37 +47824,6 @@ function messageDirective() {
   }
 }
 angular
-  .module('Ballr')
-  .factory('Channel', Channel);
-
-Channel.$inject = ["$resource"];
-function Channel($resource) {
-  return $resource('/channels/:id', { id: '@_id' }, {
-    update: { method: "PUT" }
-  });
-}
-angular
-  .module('Ballr')
-  .factory('Message', Message);
-
-Message.$inject = ["$resource"];
-function Message($resource) {
-  return $resource('/messages/:id', { id: '@_id' }, {
-    update: { method: "PUT" },
-    query: { method: "GET", isArray: true, url: '/messages/:channelId' }
-  });
-}
-angular
-  .module('Ballr')
-  .factory('User', User);
-
-User.$inject = ["$resource"];
-function User($resource) {
-  return $resource('/users', { id: '@_id' }, {
-    update: { method: "PUT" }
-  });
-}
-angular
   .module("Ballr")
   .factory("AuthInterceptor", AuthInterceptor);
 
@@ -47925,4 +47894,35 @@ function TokenService($window, jwtHelper) {
     var token = this.getToken();
     return token ? jwtHelper.decodeToken(token) : null;
   }
+}
+angular
+  .module('Ballr')
+  .factory('Channel', Channel);
+
+Channel.$inject = ["$resource"];
+function Channel($resource) {
+  return $resource('/channels/:id', { id: '@_id' }, {
+    update: { method: "PUT" }
+  });
+}
+angular
+  .module('Ballr')
+  .factory('Message', Message);
+
+Message.$inject = ["$resource"];
+function Message($resource) {
+  return $resource('/messages/:id', { id: '@_id' }, {
+    update: { method: "PUT" },
+    query: { method: "GET", isArray: true, url: '/messages/:channelId' }
+  });
+}
+angular
+  .module('Ballr')
+  .factory('User', User);
+
+User.$inject = ["$resource"];
+function User($resource) {
+  return $resource('/users', { id: '@_id' }, {
+    update: { method: "PUT" }
+  });
 }
