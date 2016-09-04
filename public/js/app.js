@@ -47737,7 +47737,9 @@ function MessagesController($rootScope, socket, Message) {
         return message._id === deletedMessage._id;
       });
 
-      self.all.splice(index, 1);
+      if(index > -1) {
+        self.all.splice(index, 1);
+      }
     });
   });
 
