@@ -7,6 +7,11 @@
       {{ message.user.name }} <span>{{ message.date }}</span>
     </h6>
     <p>{{ message.content }}</p>
+
+    <div ng-if="message.giphy">
+      <p class="link"><a href="{{ message.giphy.link }}">{{ message.giphy.title }}</a> ({{ message.giphy.size }}KB)</p>
+      <img ng-src="{{ message.giphy.image }}">
+    </div>
   </div>
 
   <button class="delete" ng-click="controller.delete(message)" ng-if="message.user._id === currentUser._id">&times;</button>

@@ -47579,6 +47579,7 @@ module.exports = yeast;
 
 angular
   .module("Ballr", ['ngResource', 'satellizer', 'ui.router', 'angular-jwt'])
+  .constant("GIPHY_KEY", "dc6zaTOxFJmzC")
   .config(setupInterceptor)
   .config(oauthConfig)
   .config(Router);
@@ -47820,16 +47821,6 @@ function messageDirective() {
       currentUser: '=',
       controller: '='
     }
-  }
-}
-angular
-  .module("Ballr")
-  .directive('scrollTop', scrollTop);
-
-scrollTop.$inject = ["$timeout"];
-function scrollTop($timeout) {
-  return {
-    restrict: 'A'
   }
 }
 angular

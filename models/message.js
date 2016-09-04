@@ -6,12 +6,23 @@ var messageSchema = new mongoose.Schema({
   channel: { type: mongoose.Schema.ObjectId, ref: 'Channel' },
   user: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   file: String,
+  giphy: {
+    image: String,
+    link: String,
+    title: String,
+    size: Number
+  },
   date: Date
 });
 
 messageSchema.path('date')
   .get(function(date) {
     return utils.time.format(date);
+  });
+
+messageSchema.path('giphy.size')
+  .get(function(size) {
+    if(size) return utils.number.toKB(size);
   });
 
 messageSchema.set('toJSON', { getters: true });

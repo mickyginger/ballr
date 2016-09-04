@@ -20,5 +20,10 @@ module.exports = {
 
       return date + " " + time;
     }
+  },
+  number: {
+    toKB: function(bytes) {
+      return parseFloat((bytes / 1040).toFixed(2));
+    }
   }
 }

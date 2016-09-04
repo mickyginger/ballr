@@ -5,6 +5,7 @@ var Promise = require('bluebird');
 var Channel = require('../models/channel');
 var Message = require('../models/message');
 var _ = require('underscore');
+var giphy = require('./giphy');
 
 module.exports = function(server) {
       
@@ -26,9 +27,29 @@ module.exports = function(server) {
       socket.on('message', function(data) {
         data.user = user;
         data.date = utils.time.format(new Date());
-        socket.emit('message', data);
 
-        Message.create(data);
+        if(!data.content.match(/\/giphy/)) {
+          return Message.create(data)
+            .then(function() {
+              socket.emit('message', data);
+            });
+        }
+
+        var querystring = data.content.match(/^\/giphy (.*)/)[1];
+        return giphy.search(querystring).then(function(response) {
+
+          data.giphy = {
+            image: response.data[0].images.fixed_height.url,
+            link: response.data[0].url,
+            title: querystring,
+            size: response.data[0].images.fixed_height.size
+          };
+
+          return Message.create(data)
+            .then(function() {
+              socket.emit('message', data);
+            });
+        });
       });
 
       socket.on('disconnect', function() {

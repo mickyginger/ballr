@@ -1,5 +1,6 @@
 angular
   .module("Ballr", ['ngResource', 'satellizer', 'ui.router', 'angular-jwt'])
+  .constant("GIPHY_KEY", "dc6zaTOxFJmzC")
   .config(setupInterceptor)
   .config(oauthConfig)
   .config(Router);
