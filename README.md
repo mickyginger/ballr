@@ -31,6 +31,7 @@ This is an attempt at building a slack clone with a MEAN stack purely for educat
 
 - Can't log out
 - Desktop only
+- Inverted scroll on main page
 
 ### To do
 
@@ -39,3 +40,16 @@ This is an attempt at building a slack clone with a MEAN stack purely for educat
 - Code blocks
 - File upload
 - <del>Giphy</del>
+- parse messages for links and images
+
+
+## Setup
+
+Please feel free to fork the repo!
+
+You'll need to have Gulp's CLI `npm i -g gulp-cli` to run the gulp tasks.
+
+Once you've forked and cloned the repo, `npm i` and `node app` to start the server.
+Run `gulp` in parallel to have gulp watch for changes in the `lib` folder.
+
+`gulp build` will minify scripts and update the `index.html` to pull in the minified scripts.

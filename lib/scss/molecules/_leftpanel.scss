@@ -41,6 +41,10 @@
     }
   }
 
+  .channel, .user {
+    cursor: pointer;
+  }
+
   .form-container {
     position: absolute;
     top: 0;

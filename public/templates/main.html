@@ -27,7 +27,7 @@
 
     <div id="users" ng-controller="UsersController as users">
       <h5>Users <span>({{ users.all.length }})</span></h5>
-      <h6 ng-repeat="user in users.all" ng-class="{ active: user.active }">{{ user.name }}</h6>
+      <h6 class="user" ng-repeat="user in users.all" ng-class="{ active: user.active }">{{ user.name }}</h6>
     </div>
   </div>
 

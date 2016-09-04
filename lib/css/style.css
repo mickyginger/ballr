@@ -116,6 +116,8 @@ h6 {
     #left-panel h5:hover button.delete, #left-panel h6:hover button.delete {
       z-index: 10;
       opacity: 1; }
+  #left-panel .channel, #left-panel .user {
+    cursor: pointer; }
   #left-panel .form-container {
     position: absolute;
     top: 0;

@@ -1,4 +1,4 @@
-<h6 ng-class="{ active: controller.current === channel }" ng-click="controller.change(channel)">
+<h6 class="channel" ng-class="{ active: controller.current === channel }" ng-click="controller.change(channel)">
   {{ channel.name }}
   <button ng-click="controller.delete(channel)" class="delete" ng-if="channel.creator === currentUser._id">&times;</button>
 </h6>
