@@ -36,11 +36,17 @@ This is an attempt at building a slack clone with a MEAN stack purely for educat
 ### To do
 
 - Direct messaging
+- Private channels
+- Mobile UI
 - <del>Emojis</del> 
-- Code blocks
+- Markdown support
 - File upload
 - <del>Giphy</del>
-- parse messages for links and images
+- Parse messages for links and images
+- Subscribe to users with sockets
+- Cache user data
+- Restrict the number of messages returned by the server, and lazy load older messages on scroll
+- Limit total number of messages, and auto delete oldest ones
 
 
 ## Setup
