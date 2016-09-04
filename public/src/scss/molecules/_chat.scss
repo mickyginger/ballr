@@ -8,6 +8,11 @@
     padding: 15px 0;
     overflow-y: scroll;
     margin-bottom: 15px;
+    transform: rotate(180deg);
+
+    .inner {
+      transform: rotate(180deg);
+    }
   }
 
   textarea {

@@ -6457,7 +6457,10 @@ h6 {
     height: calc(100vh - 115px);
     padding: 15px 0;
     overflow-y: scroll;
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    transform: rotate(180deg); }
+    #chat #messages .inner {
+      transform: rotate(180deg); }
   #chat textarea {
     height: 90px;
     width: 100%;

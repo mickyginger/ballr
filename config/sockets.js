@@ -30,7 +30,8 @@ module.exports = function(server) {
 
         if(!data.content.match(/\/giphy/)) {
           return Message.create(data)
-            .then(function() {
+            .then(function(message) {
+              data._id = message._id;
               socket.emit('message', data);
             });
         }
@@ -46,7 +47,8 @@ module.exports = function(server) {
           };
 
           return Message.create(data)
-            .then(function() {
+            .then(function(message) {
+              data._id = message._id;
               socket.emit('message', data);
             });
         });

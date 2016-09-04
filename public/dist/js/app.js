@@ -47617,6 +47617,38 @@ function Router($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
 }
 angular
+  .module('Ballr')
+  .directive('channel', channelDirective);
+
+function channelDirective() {
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: '/templates/directives/channel.html',
+    scope: {
+      channel: '=',
+      currentUser: '=',
+      controller: '='
+    }
+  }
+}
+angular
+  .module('Ballr')
+  .directive('message', messageDirective);
+
+function messageDirective() {
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: '/templates/directives/message.html',
+    scope: {
+      message: '=',
+      currentUser: '=',
+      controller: '='
+    }
+  }
+}
+angular
   .module("Ballr")
   .controller("ChannelsController", ChannelsController);
 
@@ -47729,7 +47761,6 @@ function MessagesController($rootScope, socket, Message) {
 
   this.delete = function(message) {
     var index = this.all.indexOf(message);
-
     message.$delete(function() {
       self.all.splice(index, 1);
     });
@@ -47753,7 +47784,8 @@ function MessagesController($rootScope, socket, Message) {
 
   socket.on("message", function(data) {
     $rootScope.$applyAsync(function() {
-      self.all.push(data);
+      var message = new Message(data);
+      self.all.push(message);
     });
   });
 }
@@ -47790,38 +47822,6 @@ function UsersController($window, User, socket, $rootScope) {
   });
 
   this.all = User.query();
-}
-angular
-  .module('Ballr')
-  .directive('channel', channelDirective);
-
-function channelDirective() {
-  return {
-    restrict: 'E',
-    replace: true,
-    templateUrl: '/templates/directives/channel.html',
-    scope: {
-      channel: '=',
-      currentUser: '=',
-      controller: '='
-    }
-  }
-}
-angular
-  .module('Ballr')
-  .directive('message', messageDirective);
-
-function messageDirective() {
-  return {
-    restrict: 'E',
-    replace: true,
-    templateUrl: '/templates/directives/message.html',
-    scope: {
-      message: '=',
-      currentUser: '=',
-      controller: '='
-    }
-  }
 }
 angular
   .module('Ballr')

@@ -14,7 +14,6 @@ function MessagesController($rootScope, socket, Message) {
 
   this.delete = function(message) {
     var index = this.all.indexOf(message);
-
     message.$delete(function() {
       self.all.splice(index, 1);
     });
@@ -38,7 +37,8 @@ function MessagesController($rootScope, socket, Message) {
 
   socket.on("message", function(data) {
     $rootScope.$applyAsync(function() {
-      self.all.push(data);
+      var message = new Message(data);
+      self.all.push(message);
     });
   });
 }
