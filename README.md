@@ -31,7 +31,7 @@ This is an attempt at building a slack clone with a MEAN stack purely for educat
 
 - Can't log out
 - Desktop only
-- Inverted scroll on main page
+- <del>Inverted scroll on main page</del>
 
 ### To do
 
