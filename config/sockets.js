@@ -37,14 +37,9 @@ module.exports = function(server) {
         }
 
         var querystring = data.content.match(/^\/giphy (.*)/)[1];
-        return giphy.search(querystring).then(function(response) {
+        return giphy.search(querystring).then(function(giphyData) {
 
-          data.giphy = {
-            image: response.data[0].images.fixed_height.url,
-            link: response.data[0].url,
-            title: querystring,
-            size: response.data[0].images.fixed_height.size
-          };
+          data.giphy = giphyData;
 
           return Message.create(data)
             .then(function(message) {

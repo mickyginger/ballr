@@ -47617,38 +47617,6 @@ function Router($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");
 }
 angular
-  .module('Ballr')
-  .directive('channel', channelDirective);
-
-function channelDirective() {
-  return {
-    restrict: 'E',
-    replace: true,
-    templateUrl: '/templates/directives/channel.html',
-    scope: {
-      channel: '=',
-      currentUser: '=',
-      controller: '='
-    }
-  }
-}
-angular
-  .module('Ballr')
-  .directive('message', messageDirective);
-
-function messageDirective() {
-  return {
-    restrict: 'E',
-    replace: true,
-    templateUrl: '/templates/directives/message.html',
-    scope: {
-      message: '=',
-      currentUser: '=',
-      controller: '='
-    }
-  }
-}
-angular
   .module("Ballr")
   .controller("ChannelsController", ChannelsController);
 
@@ -47822,6 +47790,38 @@ function UsersController($window, User, socket, $rootScope) {
   });
 
   this.all = User.query();
+}
+angular
+  .module('Ballr')
+  .directive('channel', channelDirective);
+
+function channelDirective() {
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: '/templates/directives/channel.html',
+    scope: {
+      channel: '=',
+      currentUser: '=',
+      controller: '='
+    }
+  }
+}
+angular
+  .module('Ballr')
+  .directive('message', messageDirective);
+
+function messageDirective() {
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: '/templates/directives/message.html',
+    scope: {
+      message: '=',
+      currentUser: '=',
+      controller: '='
+    }
+  }
 }
 angular
   .module('Ballr')
