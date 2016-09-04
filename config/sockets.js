@@ -55,6 +55,13 @@ module.exports = function(server) {
         });
       });
 
+      socket.on('delete', function(data) {
+        Message.remove({ _id: data._id })
+          .then(function() {
+            io.sockets.emit('delete', data);
+          });
+      });
+
       socket.on('disconnect', function() {
         io.sockets.emit('away', user);
       });

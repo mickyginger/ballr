@@ -47728,11 +47728,18 @@ function MessagesController($rootScope, socket, Message) {
   this.all = [];
 
   this.delete = function(message) {
-    var index = this.all.indexOf(message);
-    message.$delete(function() {
+    socket.emit("delete", message);
+  }
+
+  socket.on("delete", function(deletedMessage) {
+    $rootScope.$applyAsync(function() {
+      var index = self.all.findIndex(function(message) {
+        return message._id === deletedMessage._id;
+      });
+
       self.all.splice(index, 1);
     });
-  }
+  });
 
   $rootScope.$on("currentChannel", function(event, channel) {
     if(channel) {
@@ -47752,7 +47759,6 @@ function MessagesController($rootScope, socket, Message) {
 
   socket.on("message", function(data) {
     $rootScope.$applyAsync(function() {
-      console.log("receiving message", data);
       var message = new Message(data);
       self.all.push(message);
     });
