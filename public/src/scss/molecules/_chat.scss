@@ -13,6 +13,19 @@
     .inner {
       transform: rotate(180deg);
     }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    -ms-scrollbar-base-color: transparent;
+    -ms-scrollbar-face-color: transparent;
+    -ms-scrollbar-highlight-color: transparent;
+    -ms-scrollbar-3dlight-color: transparent;
+    -ms-scrollbar-shadow-color: transparent;
+    -ms-scrollbar-darkshadow-color: transparent;
+    -ms-scrollbar-base-color: transparent;
+    -ms-scrollbar-track-color: transparent;
   }
 
   textarea {

@@ -68,9 +68,19 @@ h6 {
     padding: 15px 0;
     overflow-y: scroll;
     margin-bottom: 15px;
-    transform: rotate(180deg); }
+    transform: rotate(180deg);
+    -ms-scrollbar-base-color: transparent;
+    -ms-scrollbar-face-color: transparent;
+    -ms-scrollbar-highlight-color: transparent;
+    -ms-scrollbar-3dlight-color: transparent;
+    -ms-scrollbar-shadow-color: transparent;
+    -ms-scrollbar-darkshadow-color: transparent;
+    -ms-scrollbar-base-color: transparent;
+    -ms-scrollbar-track-color: transparent; }
     #chat #messages .inner {
       transform: rotate(180deg); }
+    #chat #messages::-webkit-scrollbar {
+      display: none; }
   #chat textarea {
     height: 90px;
     width: 100%;
