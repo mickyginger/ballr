@@ -21,6 +21,8 @@ button, input {
 .message {
   background-color: #fff;
   position: relative; }
+  .message .media-object {
+    border-radius: 4px; }
   .message .media-heading {
     font-weight: bold; }
     .message .media-heading span {
