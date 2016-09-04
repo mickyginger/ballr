@@ -13,7 +13,7 @@ var replace = require('gulp-replace');
 var livereload = require('gulp-livereload');
 
 gulp.task('clean', function(done) {
-  return del(['public/dist/css', 'public/dist/js']);
+  return del(['public/css', 'public/js']);
 });
 
 gulp.task('bower', function() {
@@ -23,7 +23,7 @@ gulp.task('bower', function() {
   return gulp.src(bower({
     overrides: {
       bootstrap: {
-        main: 'public/dist/css/bootstrap.css'
+        main: 'dist/css/bootstrap.css'
       },
       jquery: { ignore: true },
       'socket.io-client': {
@@ -33,62 +33,62 @@ gulp.task('bower', function() {
   }))
     .pipe(jsFilter)
     .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('public/src/js'))
+    .pipe(gulp.dest('lib/js'))
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
     .pipe(concat('vendor.css'))
-    .pipe(gulp.dest('public/src/css'));
+    .pipe(gulp.dest('lib/css'));
 });
 
 gulp.task('sass', function() {
-  return gulp.src('public/src/scss/style.scss')
+  return gulp.src('lib/scss/style.scss')
     .pipe(sass())
-    .pipe(gulp.dest('public/src/css'))
+    .pipe(gulp.dest('lib/css'))
 });
 
 gulp.task('concat', function() {
   var jsFilter = filter('**/*.js', { restore: true });
   var cssFilter = filter('**/*.css', { restore: true });
 
-  return gulp.src(['public/src/**/vendor.*', 'public/src/js/app.js', 'public/src/js/**/*.js', 'public/src/css/style.css'])
+  return gulp.src(['lib/**/vendor.*', 'lib/js/app.js', 'lib/js/**/*.js', 'lib/css/style.css'])
     .pipe(jsFilter)
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('public/dist/js'))
+    .pipe(gulp.dest('public/js'))
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
     .pipe(concat('app.css'))
-    .pipe(gulp.dest('public/dist/css'));
+    .pipe(gulp.dest('public/css'));
 });
 
 gulp.task('minify', function() {
   var jsFilter = filter('**/*.js', { restore: true });
   var cssFilter = filter('**/*.css', { restore: true });
 
-  return gulp.src('public/dist/**/app.*')
+  return gulp.src('public/**/app.*')
     .pipe(jsFilter)
     .pipe(uglify())
     .pipe(rename('app.min.js'))
-    .pipe(gulp.dest('public/dist/js'))
+    .pipe(gulp.dest('public/js'))
     .pipe(jsFilter.restore)
     .pipe(cssFilter)
     .pipe(cleancss())
     .pipe(rename('app.min.css'))
-    .pipe(gulp.dest('public/dist/css'));
+    .pipe(gulp.dest('public/css'));
 });
 
 
 gulp.task('replace:prod', function() {
-  return gulp.src('./index.html')
+  return gulp.src('public/index.html')
     .pipe(replace(/app\.css/, 'app.min.css'))
     .pipe(replace(/app\.js/, 'app.min.js'))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('replace:dev', function() {
-  return gulp.src('./index.html')
+  return gulp.src('public/index.html')
     .pipe(replace(/app\.min\.css/, 'app.css'))
     .pipe(replace(/app\.min\.js/, 'app.js'))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('build', function(done) {
@@ -104,7 +104,7 @@ gulp.task('default', function() {
     });
   });
 
-  gulp.watch(['public/src/js/**/*', 'public/src/scss/**/*', 'templates/**/*', 'index.html'], function() {
+  gulp.watch(['lib/js/**/*', 'lib/scss/**/*', 'public/templates/**/*', 'public/index.html'], function() {
     runSeq('sass', 'concat', 'replace:dev', function() {
       livereload.reload('public/index.html');
     });
