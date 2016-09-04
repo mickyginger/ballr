@@ -22,7 +22,7 @@ module.exports = function(server) {
         profileImage: socket.decoded_token.profileImage
       };
 
-      socket.emit('active', user);
+      io.sockets.emit('active', user);
 
       socket.on('message', function(data) {
         data.user = user;
@@ -35,7 +35,7 @@ module.exports = function(server) {
               data._id = message._id;
               data.content = message.content;
 
-              socket.emit('message', data);
+              io.sockets.emit('message', data);
             });
         }
 
@@ -50,13 +50,13 @@ module.exports = function(server) {
               data._id = message._id;
               data.content = message.content;
               
-              socket.emit('message', data);
+              io.sockets.emit('message', data);
             });
         });
       });
 
       socket.on('disconnect', function() {
-        socket.emit('away', user);
+        io.sockets.emit('away', user);
       });
     });
 }
