@@ -39,7 +39,7 @@ function facebook(req, res) {
               facebookId: profile.id,
               name: profile.name,
               profileImage: profile.picture.data.url,
-              email: profile.picture.email
+              email: profile.email
             });
           }
 
